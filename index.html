@@ -1,0 +1,1350 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Santa Ajuda Finanças — Consultoria Financeira Personalizada</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --verde: #2A6E4A;
+    --verde-md: #3A8A60;
+    --verde-lt: #EBF6EF;
+    --bege: #F8F2E8;
+    --bege-md: #EDE5D5;
+    --ouro: #B8892E;
+    --ouro-lt: #F5EDD8;
+    --txt: #1A2018;
+    --txt-md: #4A5548;
+    --txt-lt: #7A8A78;
+    --branco: #FDFCFA;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    color: var(--txt);
+    background: var(--branco);
+    line-height: 1.75;
+    overflow-x: hidden;
+  }
+
+  /* ——— TIPOGRAFIA ——— */
+  h1, h2, h3, h4 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    line-height: 1.2;
+  }
+
+  /* ——— NAV ——— */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.2rem 5%;
+    background: rgba(253,252,250,0.92);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(42,110,74,0.12);
+  }
+
+  .logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--verde);
+    letter-spacing: -0.02em;
+  }
+
+  .logo span {
+    color: var(--ouro);
+  }
+
+  nav a.cta-nav {
+    display: inline-block;
+    padding: 0.55rem 1.4rem;
+    background: var(--verde);
+    color: #fff;
+    border-radius: 40px;
+    font-size: 0.875rem;
+    font-weight: 400;
+    text-decoration: none;
+    letter-spacing: 0.01em;
+    transition: background 0.2s, transform 0.15s;
+  }
+  nav a.cta-nav:hover { background: var(--verde-md); transform: translateY(-1px); }
+
+  /* ——— HERO ——— */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding: 7rem 5% 5rem;
+    gap: 4rem;
+    background: var(--bege);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -120px; right: -120px;
+    width: 560px; height: 560px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(42,110,74,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -80px; left: 10%;
+    width: 380px; height: 380px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(184,137,46,0.07) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.8rem;
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ouro);
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-eyebrow::before {
+    content: '';
+    display: inline-block;
+    width: 28px; height: 1px;
+    background: var(--ouro);
+  }
+
+  .hero h1 {
+    font-size: clamp(2.4rem, 4vw, 3.4rem);
+    color: var(--txt);
+    margin-bottom: 1.5rem;
+    line-height: 1.15;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--verde);
+  }
+
+  .hero-desc {
+    font-size: 1.05rem;
+    color: var(--txt-md);
+    margin-bottom: 2.5rem;
+    max-width: 480px;
+  }
+
+  .hero-ctas {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    flex-wrap: wrap;
+    margin-bottom: 2.5rem;
+  }
+
+  .btn-primary {
+    display: inline-block;
+    padding: 0.9rem 2rem;
+    background: var(--verde);
+    color: #fff;
+    border-radius: 40px;
+    font-size: 0.95rem;
+    font-weight: 400;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+    box-shadow: 0 4px 20px rgba(42,110,74,0.25);
+  }
+  .btn-primary:hover { background: var(--verde-md); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(42,110,74,0.3); }
+
+  .btn-ghost {
+    display: inline-block;
+    padding: 0.9rem 2rem;
+    border: 1.5px solid var(--verde);
+    color: var(--verde);
+    border-radius: 40px;
+    font-size: 0.95rem;
+    font-weight: 400;
+    text-decoration: none;
+    transition: background 0.2s, color 0.2s;
+  }
+  .btn-ghost:hover { background: var(--verde); color: #fff; }
+
+  .hero-micro {
+    font-size: 0.8rem;
+    color: var(--txt-lt);
+    display: flex;
+    gap: 1.2rem;
+    flex-wrap: wrap;
+  }
+
+  .hero-micro span::before {
+    content: '✦ ';
+    color: var(--ouro);
+    font-size: 0.65rem;
+  }
+
+  /* HERO IMAGE SIDE */
+  .hero-visual {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .hero-card-main {
+    background: var(--branco);
+    border-radius: 24px;
+    padding: 2.5rem;
+    box-shadow: 0 20px 60px rgba(42,110,74,0.12), 0 2px 8px rgba(42,110,74,0.06);
+    width: 100%;
+    max-width: 380px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .avatar-circle {
+    width: 72px; height: 72px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--verde-lt), var(--bege-md));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    color: var(--verde);
+    margin-bottom: 1.2rem;
+    border: 3px solid rgba(42,110,74,0.15);
+  }
+
+  .hero-card-main h3 {
+    font-size: 1.15rem;
+    color: var(--txt);
+    margin-bottom: 0.3rem;
+  }
+
+  .hero-card-main p {
+    font-size: 0.85rem;
+    color: var(--txt-md);
+    margin-bottom: 1.5rem;
+  }
+
+  .progress-item { margin-bottom: 1rem; }
+  .progress-label {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    color: var(--txt-md);
+    margin-bottom: 0.4rem;
+  }
+  .progress-bar {
+    height: 6px;
+    background: var(--bege-md);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .progress-fill {
+    height: 100%;
+    border-radius: 10px;
+    background: var(--verde);
+  }
+
+  .hero-badge {
+    position: absolute;
+    bottom: -20px; right: -20px;
+    background: var(--ouro);
+    color: #fff;
+    border-radius: 16px;
+    padding: 0.8rem 1.2rem;
+    font-size: 0.78rem;
+    font-weight: 400;
+    box-shadow: 0 8px 24px rgba(184,137,46,0.35);
+    z-index: 3;
+    line-height: 1.3;
+  }
+
+  .hero-badge strong {
+    display: block;
+    font-size: 1.3rem;
+    font-weight: 700;
+    font-family: 'Playfair Display', serif;
+  }
+
+  /* ——— PROBLEMA ——— */
+  .problema {
+    padding: 6rem 5%;
+    background: var(--branco);
+  }
+
+  .section-label {
+    font-size: 0.75rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ouro);
+    font-weight: 400;
+    margin-bottom: 1rem;
+  }
+
+  .problema-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .problema h2 {
+    font-size: clamp(2rem, 3vw, 2.8rem);
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+  }
+
+  .problema-desc {
+    color: var(--txt-md);
+    margin-bottom: 2rem;
+    font-size: 1.025rem;
+  }
+
+  .pain-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+  }
+
+  .pain-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    font-size: 0.97rem;
+    color: var(--txt-md);
+    padding: 0.9rem 1.1rem;
+    background: var(--bege);
+    border-radius: 12px;
+    border-left: 3px solid var(--verde-lt);
+    transition: border-color 0.2s, background 0.2s;
+  }
+
+  .pain-list li:hover { border-left-color: var(--verde); background: var(--verde-lt); }
+
+  .pain-icon {
+    width: 20px; height: 20px;
+    flex-shrink: 0;
+    background: var(--verde-lt);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 0.05rem;
+  }
+
+  .pain-icon::after {
+    content: '';
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: var(--verde);
+  }
+
+  .solucao-box {
+    background: var(--verde);
+    border-radius: 24px;
+    padding: 3rem;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .solucao-box::before {
+    content: '✦';
+    position: absolute;
+    top: -10px; right: 20px;
+    font-size: 8rem;
+    opacity: 0.06;
+    font-family: 'Playfair Display', serif;
+    line-height: 1;
+  }
+
+  .solucao-box h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #fff;
+  }
+
+  .solucao-box p {
+    font-size: 0.95rem;
+    opacity: 0.88;
+    line-height: 1.75;
+    margin-bottom: 1.5rem;
+  }
+
+  .solucao-mantra {
+    border-top: 1px solid rgba(255,255,255,0.2);
+    padding-top: 1.5rem;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1.1rem;
+    opacity: 0.9;
+    line-height: 1.4;
+  }
+
+  /* ——— SERVIÇOS ——— */
+  .servicos {
+    padding: 6rem 5%;
+    background: var(--bege);
+  }
+
+  .servicos-header {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 4rem;
+  }
+
+  .servicos-header h2 {
+    font-size: clamp(2rem, 3vw, 2.6rem);
+    margin-bottom: 1rem;
+  }
+
+  .servicos-header p {
+    color: var(--txt-md);
+    font-size: 1rem;
+  }
+
+  .servicos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .servico-card {
+    background: var(--branco);
+    border-radius: 20px;
+    padding: 2rem 1.75rem;
+    border: 1px solid rgba(42,110,74,0.1);
+    transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .servico-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 40px rgba(42,110,74,0.1);
+    border-color: rgba(42,110,74,0.25);
+  }
+
+  .servico-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    color: var(--verde-lt);
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+    transition: color 0.2s;
+  }
+
+  .servico-card:hover .servico-num { color: rgba(42,110,74,0.2); }
+
+  .servico-card h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
+    color: var(--verde);
+  }
+
+  .servico-card p {
+    font-size: 0.9rem;
+    color: var(--txt-md);
+    line-height: 1.65;
+  }
+
+  /* ——— COMO FUNCIONA ——— */
+  .como {
+    padding: 6rem 5%;
+    background: var(--branco);
+  }
+
+  .como-inner {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .como-header {
+    margin-bottom: 4rem;
+  }
+
+  .como-header h2 {
+    font-size: clamp(2rem, 3vw, 2.6rem);
+    margin-bottom: 1rem;
+    max-width: 480px;
+  }
+
+  .como-header p {
+    color: var(--txt-md);
+    max-width: 460px;
+  }
+
+  .steps {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+
+  .step {
+    display: flex;
+    gap: 1.25rem;
+    align-items: flex-start;
+    padding: 1.75rem;
+    border-radius: 16px;
+    background: var(--bege);
+    border: 1px solid var(--bege-md);
+    transition: background 0.2s, border-color 0.2s;
+  }
+
+  .step:hover { background: var(--verde-lt); border-color: rgba(42,110,74,0.2); }
+
+  .step-num {
+    width: 44px; height: 44px;
+    flex-shrink: 0;
+    background: var(--verde);
+    color: #fff;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+  }
+
+  .step h3 { font-size: 1rem; margin-bottom: 0.4rem; color: var(--verde); }
+  .step p { font-size: 0.88rem; color: var(--txt-md); line-height: 1.6; }
+
+  /* ——— SOBRE ——— */
+  .sobre {
+    padding: 6rem 5%;
+    background: var(--bege);
+  }
+
+  .sobre-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+  }
+
+  .sobre-visual {
+    position: relative;
+  }
+
+  .sobre-foto {
+    width: 100%;
+    max-width: 400px;
+    aspect-ratio: 4/5;
+    background: linear-gradient(160deg, var(--verde-lt) 0%, var(--bege-md) 100%);
+    border-radius: 24px 24px 80px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .sobre-foto-inner {
+    font-family: 'Playfair Display', serif;
+    font-size: 6rem;
+    opacity: 0.18;
+    color: var(--verde);
+  }
+
+  .sobre-stat {
+    position: absolute;
+    bottom: 32px; right: -24px;
+    background: var(--branco);
+    border-radius: 16px;
+    padding: 1rem 1.5rem;
+    box-shadow: 0 8px 32px rgba(42,110,74,0.12);
+  }
+
+  .sobre-stat strong {
+    display: block;
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    color: var(--verde);
+    line-height: 1;
+  }
+
+  .sobre-stat span {
+    font-size: 0.78rem;
+    color: var(--txt-lt);
+  }
+
+  .sobre-txt h2 {
+    font-size: clamp(1.8rem, 2.5vw, 2.4rem);
+    margin-bottom: 1.5rem;
+    line-height: 1.25;
+  }
+
+  .sobre-txt p {
+    color: var(--txt-md);
+    margin-bottom: 1.2rem;
+    font-size: 0.98rem;
+  }
+
+  .sobre-txt p strong {
+    color: var(--txt);
+    font-weight: 500;
+  }
+
+  /* ——— BENEFÍCIOS ——— */
+  .beneficios {
+    padding: 6rem 5%;
+    background: var(--verde);
+    color: #fff;
+  }
+
+  .beneficios-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .beneficios-header {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+
+  .beneficios-header h2 {
+    font-size: clamp(2rem, 3vw, 2.6rem);
+    color: #fff;
+    margin-bottom: 0.75rem;
+  }
+
+  .beneficios-header p {
+    opacity: 0.8;
+    font-size: 1rem;
+  }
+
+  .beneficios-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .beneficio {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 16px;
+    padding: 1.5rem;
+    transition: background 0.2s;
+  }
+
+  .beneficio:hover { background: rgba(255,255,255,0.13); }
+
+  .beneficio-icon {
+    width: 36px; height: 36px;
+    background: rgba(255,255,255,0.15);
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+  }
+
+  .beneficio h4 {
+    font-size: 0.95rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 500;
+    color: #fff;
+    line-height: 1.4;
+  }
+
+  /* ——— DEPOIMENTOS ——— */
+  .depoimentos {
+    padding: 6rem 5%;
+    background: var(--branco);
+  }
+
+  .dep-header {
+    text-align: center;
+    max-width: 560px;
+    margin: 0 auto 4rem;
+  }
+
+  .dep-header h2 {
+    font-size: clamp(1.8rem, 2.8vw, 2.5rem);
+    margin-bottom: 0.75rem;
+  }
+
+  .dep-header p { color: var(--txt-md); }
+
+  .dep-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .dep-card {
+    background: var(--bege);
+    border-radius: 20px;
+    padding: 2rem;
+    border: 1px solid var(--bege-md);
+    position: relative;
+  }
+
+  .dep-card::before {
+    content: '"';
+    font-family: 'Playfair Display', serif;
+    font-size: 5rem;
+    color: var(--verde-lt);
+    position: absolute;
+    top: -12px;
+    left: 20px;
+    line-height: 1;
+  }
+
+  .dep-txt {
+    font-size: 0.95rem;
+    color: var(--txt-md);
+    line-height: 1.75;
+    margin-bottom: 1.25rem;
+    padding-top: 1.5rem;
+  }
+
+  .dep-autor {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .dep-avatar {
+    width: 38px; height: 38px;
+    border-radius: 50%;
+    background: var(--verde-lt);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 0.9rem;
+    color: var(--verde);
+    font-weight: 600;
+    flex-shrink: 0;
+  }
+
+  .dep-nome {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--txt);
+  }
+
+  .dep-cargo { font-size: 0.78rem; color: var(--txt-lt); }
+
+  /* ——— CTA CENTRAL ——— */
+  .cta-section {
+    padding: 6rem 5%;
+    background: var(--bege);
+  }
+
+  .cta-box {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+    background: var(--branco);
+    border-radius: 32px;
+    padding: 4rem 3rem;
+    box-shadow: 0 20px 60px rgba(42,110,74,0.08);
+    border: 1px solid rgba(42,110,74,0.1);
+  }
+
+  .cta-box .section-label { margin-bottom: 1.25rem; }
+
+  .cta-box h2 {
+    font-size: clamp(1.8rem, 2.8vw, 2.5rem);
+    margin-bottom: 1rem;
+    line-height: 1.25;
+  }
+
+  .cta-box p {
+    color: var(--txt-md);
+    font-size: 1rem;
+    margin-bottom: 2rem;
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .cta-micro {
+    margin-top: 1rem;
+    font-size: 0.8rem;
+    color: var(--txt-lt);
+  }
+
+  /* ——— FAQ ——— */
+  .faq {
+    padding: 6rem 5%;
+    background: var(--branco);
+  }
+
+  .faq-inner {
+    max-width: 680px;
+    margin: 0 auto;
+  }
+
+  .faq-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .faq-header h2 {
+    font-size: clamp(1.8rem, 2.5vw, 2.3rem);
+    margin-bottom: 0.5rem;
+  }
+
+  .faq-item {
+    border-bottom: 1px solid var(--bege-md);
+    padding: 1.5rem 0;
+  }
+
+  .faq-q {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 0.97rem;
+    color: var(--txt);
+    gap: 1rem;
+    transition: color 0.2s;
+  }
+
+  .faq-q:hover { color: var(--verde); }
+
+  .faq-q .icon {
+    width: 24px; height: 24px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: var(--verde-lt);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    color: var(--verde);
+    font-weight: 300;
+    transition: background 0.2s, transform 0.3s;
+  }
+
+  .faq-item.open .faq-q .icon {
+    background: var(--verde);
+    color: #fff;
+    transform: rotate(45deg);
+  }
+
+  .faq-a {
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.4s ease, padding 0.3s;
+    font-size: 0.92rem;
+    color: var(--txt-md);
+    line-height: 1.75;
+    padding-top: 0;
+  }
+
+  .faq-item.open .faq-a {
+    max-height: 200px;
+    padding-top: 1rem;
+  }
+
+  /* ——— CTA FINAL ——— */
+  .cta-final {
+    padding: 7rem 5%;
+    background: var(--txt);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta-final::before {
+    content: '✦';
+    position: absolute;
+    font-family: 'Playfair Display', serif;
+    font-size: 22rem;
+    color: rgba(42,110,74,0.08);
+    top: -60px; left: -40px;
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  .cta-final h2 {
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    color: #fff;
+    margin-bottom: 1.25rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+  }
+
+  .cta-final h2 em {
+    font-style: italic;
+    color: var(--ouro);
+  }
+
+  .cta-final p {
+    color: rgba(255,255,255,0.65);
+    font-size: 1rem;
+    max-width: 480px;
+    margin: 0 auto 2.5rem;
+    position: relative;
+  }
+
+  .btn-final {
+    display: inline-block;
+    padding: 1.1rem 2.5rem;
+    background: var(--ouro);
+    color: #fff;
+    border-radius: 40px;
+    font-size: 1rem;
+    font-weight: 400;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+    box-shadow: 0 4px 24px rgba(184,137,46,0.4);
+    position: relative;
+  }
+
+  .btn-final:hover { background: #a07828; transform: translateY(-2px); box-shadow: 0 10px 32px rgba(184,137,46,0.45); }
+
+  /* ——— FOOTER ——— */
+  footer {
+    padding: 2.5rem 5%;
+    background: #111410;
+    text-align: center;
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.3);
+  }
+
+  footer span { color: var(--ouro); opacity: 0.7; }
+
+  /* ——— RESPONSIVO ——— */
+  @media (max-width: 768px) {
+    .hero { grid-template-columns: 1fr; padding: 6rem 5% 3rem; }
+    .hero-visual { display: none; }
+    .problema-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .sobre-inner { grid-template-columns: 1fr; gap: 3rem; }
+    .sobre-visual { display: none; }
+    .steps { grid-template-columns: 1fr; }
+    .cta-box { padding: 3rem 1.75rem; }
+    nav .cta-nav { display: none; }
+  }
+
+  /* ——— ANIMAÇÕES ——— */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(28px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-content > * {
+    animation: fadeUp 0.8s ease both;
+  }
+  .hero-content > *:nth-child(1) { animation-delay: 0.1s; }
+  .hero-content > *:nth-child(2) { animation-delay: 0.22s; }
+  .hero-content > *:nth-child(3) { animation-delay: 0.34s; }
+  .hero-content > *:nth-child(4) { animation-delay: 0.46s; }
+  .hero-content > *:nth-child(5) { animation-delay: 0.58s; }
+
+  .hero-visual {
+    animation: fadeUp 0.9s 0.5s ease both;
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">Santa<span>✦</span>Ajuda</div>
+  <a href="#cta" class="cta-nav">Análise gratuita</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-eyebrow">Consultoria financeira personalizada</div>
+    <h1>Organize sua vida<br>financeira com <em>leveza</em><br>e clareza</h1>
+    <p class="hero-desc">Chega de viver no aperto sem saber para onde o dinheiro vai. A Santa Ajuda Finanças te guia passo a passo para sair da confusão e construir uma vida mais tranquila.</p>
+    <div class="hero-ctas">
+      <a href="#cta" class="btn-primary">Agendar análise gratuita</a>
+      <a href="#como" class="btn-ghost">Como funciona</a>
+    </div>
+    <div class="hero-micro">
+      <span>Atendimento online</span>
+      <span>Sem julgamento</span>
+      <span>Plano personalizado</span>
+    </div>
+  </div>
+
+  <div class="hero-visual">
+    <div class="hero-card-main">
+      <div class="avatar-circle">✦</div>
+      <h3>Seu plano financeiro</h3>
+      <p>Acompanhamento personalizado</p>
+
+      <div class="progress-item">
+        <div class="progress-label">
+          <span>Controle de gastos</span>
+          <span>78%</span>
+        </div>
+        <div class="progress-bar"><div class="progress-fill" style="width:78%"></div></div>
+      </div>
+      <div class="progress-item">
+        <div class="progress-label">
+          <span>Redução de dívidas</span>
+          <span>54%</span>
+        </div>
+        <div class="progress-bar"><div class="progress-fill" style="width:54%"></div></div>
+      </div>
+      <div class="progress-item">
+        <div class="progress-label">
+          <span>Reserva de emergência</span>
+          <span>32%</span>
+        </div>
+        <div class="progress-bar"><div class="progress-fill" style="width:32%"></div></div>
+      </div>
+    </div>
+
+    <div class="hero-badge">
+      <strong>+200</strong>
+      vidas organizadas
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEMA -->
+<section class="problema">
+  <div class="problema-grid">
+    <div>
+      <p class="section-label">Você se identifica?</p>
+      <h2>O dinheiro entra,<br>mas nunca sobra?</h2>
+      <p class="problema-desc">Talvez você esteja passando por situações que parecem impossíveis de resolver — mas que têm solução com o apoio certo.</p>
+      <p style="color:var(--verde); font-size:0.95rem; font-style:italic; font-family:'Playfair Display',serif;">A boa notícia: você não precisa resolver isso sozinha.</p>
+    </div>
+
+    <ul class="pain-list">
+      <li>
+        <div class="pain-icon"></div>
+        Não consegue organizar os gastos do mês
+      </li>
+      <li>
+        <div class="pain-icon"></div>
+        Tem dívidas e não sabe por onde começar
+      </li>
+      <li>
+        <div class="pain-icon"></div>
+        Usa o cartão de crédito como extensão da renda
+      </li>
+      <li>
+        <div class="pain-icon"></div>
+        Quer investir, mas antes precisa arrumar a casa
+      </li>
+      <li>
+        <div class="pain-icon"></div>
+        Sente ansiedade quando pensa em dinheiro
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- SOLUÇÃO inline no problema -->
+<section style="padding: 0 5% 6rem; background: var(--branco);">
+  <div style="max-width:1100px; margin:0 auto;">
+    <div class="solucao-box">
+      <h3>A Santa Ajuda chegou para simplificar</h3>
+      <p>Com uma consultoria clara e personalizada, você entende sua realidade atual, organiza suas prioridades e cria um plano prático para recuperar o controle do seu dinheiro. Aqui, nada de linguagem complicada, planilhas impossíveis ou julgamento.</p>
+      <div class="solucao-mantra">
+        "Clareza primeiro, estratégia depois, evolução sempre."
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVIÇOS -->
+<section class="servicos">
+  <div class="servicos-header">
+    <p class="section-label">Como posso te ajudar</p>
+    <h2>Serviços feitos para<br>a sua realidade</h2>
+    <p>Cada consulta é adaptada ao seu momento de vida e aos seus objetivos — sem soluções genéricas.</p>
+  </div>
+
+  <div class="servicos-grid">
+    <div class="servico-card">
+      <div class="servico-num">01</div>
+      <h3>Organização financeira</h3>
+      <p>Mapeamento completo da sua renda, gastos, dívidas e objetivos. Você finalmente entende para onde o dinheiro vai.</p>
+    </div>
+    <div class="servico-card">
+      <div class="servico-num">02</div>
+      <h3>Plano para sair das dívidas</h3>
+      <p>Estratégia realista para negociar, priorizar e reduzir dívidas — sem promessas milagrosas.</p>
+    </div>
+    <div class="servico-card">
+      <div class="servico-num">03</div>
+      <h3>Planejamento mensal</h3>
+      <p>Um método simples para saber exatamente quanto pode gastar, guardar e investir a cada mês.</p>
+    </div>
+    <div class="servico-card">
+      <div class="servico-num">04</div>
+      <h3>Primeiros investimentos</h3>
+      <p>Orientação básica e segura para começar a investir depois que sua base estiver organizada.</p>
+    </div>
+  </div>
+</section>
+
+<!-- COMO FUNCIONA -->
+<section class="como" id="como">
+  <div class="como-inner">
+    <div class="como-header">
+      <p class="section-label">O processo</p>
+      <h2>Simples, humano<br>e direto</h2>
+      <p>Quatro etapas pensadas para se encaixar na sua rotina e transformar sua relação com o dinheiro.</p>
+    </div>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div>
+          <h3>Diagnóstico financeiro</h3>
+          <p>Entendemos sua realidade atual — renda, gastos, dívidas e objetivos — sem julgamento.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div>
+          <h3>Plano personalizado</h3>
+          <p>Criamos uma estratégia possível para a sua rotina e a sua renda. Nada teórico demais.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div>
+          <h3>Acompanhamento</h3>
+          <p>Você recebe orientação contínua para colocar o plano em prática e superar os desafios.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div>
+          <h3>Evolução contínua</h3>
+          <p>Ajustamos o caminho conforme sua vida financeira melhora e novos objetivos surgem.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOBRE -->
+<section class="sobre">
+  <div class="sobre-inner">
+    <div class="sobre-visual">
+      <div class="sobre-foto">
+        <div class="sobre-foto-inner">✦</div>
+      </div>
+      <div class="sobre-stat">
+        <strong>4+</strong>
+        <span>anos de experiência</span>
+      </div>
+    </div>
+
+    <div class="sobre-txt">
+      <p class="section-label">Quem está por trás</p>
+      <h2>Oi, eu sou a Rebeca Fernandes consultora da Santa Ajuda Finanças</h2>
+      <p>Eu ajudo pessoas que se sentem perdidas financeiramente a organizarem a vida com mais clareza, autonomia e tranquilidade.</p>
+      <p>Meu trabalho <strong>não é te julgar</strong> pelo que aconteceu até aqui. É te ajudar a entender sua situação e construir um plano possível para sair do sufoco e começar uma nova fase.</p>
+      <p>Porque todo mundo merece ter uma relação mais leve com o dinheiro.</p>
+      <br>
+      <a href="#cta" class="btn-primary">Quero minha análise gratuita</a>
+    </div>
+  </div>
+</section>
+
+<!-- BENEFÍCIOS -->
+<section class="beneficios">
+  <div class="beneficios-inner">
+    <div class="beneficios-header">
+      <p class="section-label" style="color:rgba(255,255,255,0.55);">O que você conquista</p>
+      <h2>Resultados concretos<br>que transformam</h2>
+      <p>Não é só sobre dinheiro — é sobre a tranquilidade que vem com o controle.</p>
+    </div>
+
+    <div class="beneficios-grid">
+      <div class="beneficio">
+        <div class="beneficio-icon">📊</div>
+        <h4>Clareza sobre para onde seu dinheiro vai</h4>
+      </div>
+      <div class="beneficio">
+        <div class="beneficio-icon">💆</div>
+        <h4>Menos ansiedade na hora de pagar contas</h4>
+      </div>
+      <div class="beneficio">
+        <div class="beneficio-icon">📉</div>
+        <h4>Plano realista para sair das dívidas</h4>
+      </div>
+      <div class="beneficio">
+        <div class="beneficio-icon">🗓</div>
+        <h4>Controle mensal dos gastos</h4>
+      </div>
+      <div class="beneficio">
+        <div class="beneficio-icon">🧭</div>
+        <h4>Mais segurança para tomar decisões</h4>
+      </div>
+      <div class="beneficio">
+        <div class="beneficio-icon">🌱</div>
+        <h4>Primeiros passos para construir reserva e investir</h4>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DEPOIMENTOS -->
+<section class="depoimentos">
+  <div class="dep-header">
+    <p class="section-label">Quem já passou por aqui</p>
+    <h2>Vidas que mudaram<br>de direção</h2>
+    <p style="color:var(--txt-md); font-size:0.95rem;">Histórias reais de quem organizou as finanças com a Santa Ajuda.</p>
+  </div>
+
+  <div class="dep-grid">
+    <div class="dep-card">
+      <p class="dep-txt">Eu achava que nunca ia conseguir sair do cartão. Com o plano, consegui entender minhas prioridades e comecei a respirar de novo.</p>
+      <div class="dep-autor">
+        <div class="dep-avatar">M</div>
+        <div>
+          <div class="dep-nome">Mariana S.</div>
+          <div class="dep-cargo">Cliente Santa Ajuda</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dep-card">
+      <p class="dep-txt">Foi a primeira vez que alguém me explicou finanças sem me fazer sentir incapaz. A consultoria foi acolhedora e muito prática.</p>
+      <div class="dep-autor">
+        <div class="dep-avatar">C</div>
+        <div>
+          <div class="dep-nome">Camila R.</div>
+          <div class="dep-cargo">Cliente Santa Ajuda</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dep-card">
+      <p class="dep-txt">Hoje eu sei quanto posso gastar, quanto preciso guardar e o que fazer com meu dinheiro. Parece simples, mas mudou tudo.</p>
+      <div class="dep-autor">
+        <div class="dep-avatar">J</div>
+        <div>
+          <div class="dep-nome">Juliana F.</div>
+          <div class="dep-cargo">Cliente Santa Ajuda</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA CENTRAL -->
+<section class="cta-section" id="cta">
+  <div class="cta-box">
+    <p class="section-label">Comece agora</p>
+    <h2>Agende sua análise<br>financeira gratuita</h2>
+    <p>Na análise inicial, vamos entender sua situação atual e mostrar os primeiros passos para organizar sua vida financeira. Você sai da conversa com mais clareza e um caminho mais seguro.</p>
+    <a href="https://wa.me/5511999999999?text=Ol%C3%A1%21+Quero+agendar+minha+an%C3%A1lise+financeira+gratuita." class="btn-primary" style="font-size:1rem; padding:1rem 2.2rem;">Agendar minha análise gratuita</a>
+    <p class="cta-micro">✦ Vagas limitadas por semana &nbsp;•&nbsp; Atendimento online</p>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq">
+  <div class="faq-inner">
+    <div class="faq-header">
+      <p class="section-label">Dúvidas frequentes</p>
+      <h2>Perguntas e respostas</h2>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        A consultoria é só para quem está endividado?
+        <span class="icon">+</span>
+      </div>
+      <div class="faq-a">Não. Ela serve tanto para quem está endividado quanto para quem quer se organizar melhor e começar a planejar o futuro com mais segurança e clareza.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        Preciso entender de finanças para fazer a consultoria?
+        <span class="icon">+</span>
+      </div>
+      <div class="faq-a">De jeito nenhum. A proposta é explicar tudo de forma simples e prática, no seu ritmo, usando uma linguagem que faz sentido para você.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        O atendimento é online?
+        <span class="icon">+</span>
+      </div>
+      <div class="faq-a">Sim! A consultoria é realizada totalmente online, o que facilita o acesso independente de onde você esteja.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        Vou ser julgada pela minha situação financeira?
+        <span class="icon">+</span>
+      </div>
+      <div class="faq-a">De forma nenhuma. O objetivo é acolher, organizar e construir um plano possível. Cada pessoa chega com uma história diferente, e todas são bem-vindas.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        Quanto tempo leva para ver resultados?
+        <span class="icon">+</span>
+      </div>
+      <div class="faq-a">Muitas clientes relatam mais clareza e menos ansiedade já após a primeira sessão. Os resultados práticos dependem do comprometimento com o plano, mas o caminho fica visível desde o início.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="cta-final">
+  <h2>Sua vida financeira não precisa<br>continuar uma <em>bagunça</em></h2>
+  <p>Com ajuda certa, clareza e um plano simples, você pode sair do aperto e começar a construir uma relação mais leve com o dinheiro.</p>
+  <a href="https://wa.me/5511999999999?text=Ol%C3%A1%21+Quero+organizar+minhas+finan%C3%A7as." class="btn-final">Quero organizar minhas finanças</a>
+</section>
+
+<footer>
+  © 2025 Santa Ajuda Finanças &nbsp;•&nbsp; Feito com <span>✦</span> para quem quer uma vida mais tranquila
+</footer>
+
+<script>
+  function toggleFaq(el) {
+    const item = el.closest('.faq-item');
+    const wasOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!wasOpen) item.classList.add('open');
+  }
+</script>
+</body>
+</html>
